@@ -32,3 +32,10 @@ for line in stringLines:
     print(*evenWord, " " ,*oddWord , sep = "")
 
 #Completed Working 
+#Test Case
+#2 - T
+#Test - String1
+#Review - String2
+#Expected Output 
+# Ts et 
+#Rve eiw
