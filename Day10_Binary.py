@@ -25,7 +25,6 @@ def convertIntToBinary(number):
 
 
 def maxNumberof1InBinary(number):
-
     BStack = convertIntToBinary(number)
     #a, b = tee(BStack)
     #next(b, None)
