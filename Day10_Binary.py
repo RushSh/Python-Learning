@@ -10,6 +10,7 @@ import re
 import sys
 from itertools import groupby
 
+#Converts a Positive Base10 int to Base2 (Binary Number) - Positive Integer Only
 def convertIntToBinary(number):
     BinaryStack = []
     while(number > 0):
@@ -17,32 +18,29 @@ def convertIntToBinary(number):
         number = number//2
         BinaryStack.append(remainder)
     
-    if(BinaryStack[0] == 0):
+    while BinaryStack[0] == 0:
         BinaryStack.pop(BinaryStack[0])
         BinaryStack.append(0)
-    #BinaryNumber = ''.join(map(str,BinaryStack))
+
+    #BinaryNumber = ''.join(map(str,BinaryStack)) - To Check BinaryNumber
     return (BinaryStack)
 
-
-def maxNumberof1InBinary(number):
+#Returns the max number of Consectuive 1's of a Binary Number with given postive input in Base10 integer
+def consecutiveNumberof1InBinary(number):
     BStack = convertIntToBinary(number)
-    #a, b = tee(BStack)
-    #next(b, None)
-    #return any(num1 == num2 and num1 == 2 for num1, num2 in izip(a, b))
-    #val  = max(len(list(v)) for g,v in itertools.groupby(BStack))
     lengthOf1 = 0 
+    print(BStack)
     for k, g in groupby (BStack):
         group = list(g)
-        if(k == 1 and (len(group) > lengthOf1) ):
-            lengthOf1 = len(group)
-    #BinaryNumber = ''.join(map(str,BStack))
-    #print(BinaryNumber)
-    #maxLength = max(len(groups))
+        lengthOfGroup = len(group)
+        if(k == 1 and (lengthOfGroup > lengthOf1) ):
+            lengthOf1 = lengthOfGroup
+
     print(lengthOf1)
 
 if __name__ == '__main__':
     n = int(input())
-    maxNumberof1InBinary(n)
+    consecutiveNumberof1InBinary(n)
 
 
 
