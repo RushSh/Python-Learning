@@ -11,23 +11,24 @@ from decimal import *
 def plusMinus(arr):
 
     arrLength = arr.__len__()
-    getcontext().prec = 2
-    positiveValues = negativeValues = zeroValues = 0
+    positiveCount = negativeCount = zeroCount = 0
+
     for x in range (0, arrLength):
         if arr[x] == 0:
-            zeroValues+=1
+            zeroCount+=1
         elif arr[x] > 0:
-            positiveValues+=1
+            positiveCount+=1
         else:
-            negativeValues+=1
-    positiveValues = positiveValues/arrLength
-    negativeValues = negativeValues/arrLength
-    zeroValues = zeroValues/arrLength
+            negativeCount+=1
+
+    positiveRatio = positiveCount / arrLength
+    negativeRatio = negativeCount/arrLength
+    zeroRatio     = zeroCount/arrLength
         
-    print(Decimal(positiveValues))
-    print(Decimal(negativeValues))
-    print(Decimal(zeroValues))
-        
+    print(f'{positiveRatio:.6f}')
+    print(f'{negativeRatio:.6f}')
+    print(f'{zeroRatio:.6f}')
+
 
 if __name__ == '__main__':
     n = int(input())
